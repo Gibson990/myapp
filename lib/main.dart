@@ -6,22 +6,23 @@ import 'package:myapp/notification_Icon.dart';
 import 'package:myapp/orders.dart';
 import 'package:myapp/profile.dart';
 import 'package:myapp/sideDrawer.dart';
-
+import 'package:myapp/search_box.dart'; // Import the search box widget
+import 'package:myapp/slide_view.dart'; // Import the slide view widget
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: const Color(0xFFFF7F00), // Main color
-        hintColor: const Color(0xFF9F9E9D), // Accent color
-        secondaryHeaderColor: const Color(0xFFAC3438), // Secondary color
+        primaryColor: Color(0xFFFF7F00), // Main color
+        hintColor: Color(0xFF9F9E9D), // Accent color
+        secondaryHeaderColor: Color(0xFFAC3438), // Secondary color
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFFFF7F00), // Set the background color of the app bar
           titleTextStyle: TextStyle(
@@ -41,10 +42,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(Icons.menu),
+              icon: Icon(Icons.menu),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -86,7 +86,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       drawer: SideDrawer(),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: Column(
+        children: [
+          Container(
+            color: Theme.of(context).primaryColor, // Set the background color to primaryColor
+            child: Column(
+              children: const [
+                SearchBox(), // Add the search box here
+                SlideView(), // Add the slide view here
+              ],
+            ),
+          ),
+          Expanded(
+            child: _widgetOptions.elementAt(_selectedIndex),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,

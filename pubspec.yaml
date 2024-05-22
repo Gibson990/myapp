@@ -17,12 +17,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
 
   assets:
+    - assets/slideview/
     - assets/logo/
+   
 
 # Suggested code may be subject to a license. Learn more: ~LicenseLog:2141102426.
