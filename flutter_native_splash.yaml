@@ -1,0 +1,7 @@
+flutter_native_splash:
+  color: "#ffffff" # Background color of the splash screen
+  image: assets/images/raphexpress_logo.png # Path to your logo image
+  android: true
+  ios: true
+  web: true
+  fill: true
