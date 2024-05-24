@@ -5,41 +5,11 @@ import 'package:myapp/home.dart';
 import 'package:myapp/notification_Icon.dart';
 import 'package:myapp/orders.dart';
 import 'package:myapp/profile.dart';
+
+import 'package:myapp/quick_actions.dart'; // Import the QuickActions widget
+import 'package:myapp/search_box.dart';
 import 'package:myapp/sideDrawer.dart';
-import 'package:myapp/search_box.dart'; // Import the search box widget
-import 'package:myapp/slide_view.dart'; // Import the slide view widget
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFFFF7F00), // Main color
-        hintColor: Color(0xFF9F9E9D), // Accent color
-        secondaryHeaderColor: Color(0xFFAC3438), // Secondary color
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFFF7F00), // Set the background color of the app bar
-          titleTextStyle: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600, // Semibold
-            color: Colors.white, // Text color
-          ),
-          iconTheme: IconThemeData(
-            color: Colors.white, // Icon color
-          ),
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
-    );
-  }
-}
+import 'package:myapp/slide_view.dart'; // Import the SlideView widget
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -73,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -82,19 +52,24 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         title: const Text('Your App Title'),
         actions: [
-          NotificationIcon(),
+           NotificationIcon(),
         ],
       ),
-      drawer: SideDrawer(),
+      drawer:  SideDrawer(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            color: Theme.of(context).primaryColor, // Set the background color to primaryColor
-            child: Column(
-              children: const [
-                SearchBox(), // Add the search box here
-                SlideView(), // Add the slide view here
-              ],
+            color: Theme.of(context).primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10.0), // Add padding to top
+              child: Column(
+                children: const [
+                  SearchBox(),
+                  SlideView(),
+                  QuickActions(), // Add QuickActions widget here
+                ],
+              ),
             ),
           ),
           Expanded(

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SlideView extends StatefulWidget {
-  const SlideView({Key? key}) : super(key: key);
+  const SlideView({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SlideViewState createState() => _SlideViewState();
 }
 
 class _SlideViewState extends State<SlideView> {
   int _currentIndex = 0;
+  // ignore: prefer_final_fields
   PageController _pageController = PageController();
 
   void _onPageChanged(int index) {
@@ -20,7 +22,7 @@ class _SlideViewState extends State<SlideView> {
   void _onIndicatorTap(int index) {
     _pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
   }
@@ -31,9 +33,9 @@ class _SlideViewState extends State<SlideView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 12.0),
+          margin: const EdgeInsets.symmetric(vertical: 12.0),
           width: double.infinity,
-          height: 220.0, // Adjusted height to accommodate indicators
+          height: 200.0, // Adjusted height to accommodate indicators
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -41,7 +43,7 @@ class _SlideViewState extends State<SlideView> {
                 child: PageView(
                   controller: _pageController,
                   onPageChanged: _onPageChanged,
-                  children: [
+                  children: const [
                     SlideItem(
                       title: 'Air Cargo Shipping',
                       body: 'Get your goods to their destination quickly and efficiently with our air cargo shipping service.',
@@ -76,7 +78,7 @@ class _SlideViewState extends State<SlideView> {
                       child: Container(
                         width: 10.0,
                         height: 10.0,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: _currentIndex == index
@@ -110,8 +112,8 @@ class SlideItem extends StatelessWidget {
     required this.body,
     required this.buttonText,
     required this.image,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +122,7 @@ class SlideItem extends StatelessWidget {
         children: [
           Container(
             width: 380.0, // Increased card width
-            margin: EdgeInsets.symmetric(horizontal: 8.0),
+            margin: const EdgeInsets.symmetric(horizontal: 8.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4.0), // Rounded corners set to 4px
             ),
@@ -143,42 +145,42 @@ class SlideItem extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white, // Text color
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   body,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14, // Increased font size to 14
                     color: Colors.white, // Text color
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 SizedBox(
                   width: 120.0, // Button width
                   height: 36.0, // Button height
                   child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      backgroundColor: Color(0xFFFF7F00),
-                      shape: RoundedRectangleBorder(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      backgroundColor: const Color(0xFFFF7F00),
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.zero,
                       ),
                     ),
                     child: Text(
                       buttonText,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white, // Text color
                         fontSize: 14, // Text size
                       ),
