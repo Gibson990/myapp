@@ -3,10 +3,12 @@ import 'package:myapp/notification_Screen.dart';
 
 
 class NotificationIcon extends StatelessWidget {
+  const NotificationIcon({super.key});
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.notifications),
+      icon: const Icon(Icons.notifications),
       onPressed: () {
         Navigator.of(context).push(
           MaterialPageRoute(

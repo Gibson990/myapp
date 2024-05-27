@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -92,13 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Container(
             color: Theme.of(context).primaryColor,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10.0), // Add padding to top
-              child: Column(
-                children: const [
-                  SearchBox(),
-                  SlideView(),
-                  SizedBox(height: 10), // Space between SlideView and QuickActions
+            child: const Padding(
+              padding: EdgeInsets.only(top: 2.0),// Add padding to top
+              child: Column(  
+            
+                   children: [
+                   SearchBox(),
+                   SlideView(),
                   QuickActions(), // Add QuickActions widget here
                 ],
               ),

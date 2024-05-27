@@ -2,58 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:myapp/quickAction_button.dart';
 
 class QuickActions extends StatelessWidget {
-  const QuickActions({Key? key}) : super(key: key);
+  const QuickActions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(
-            'Quick actions',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        const SizedBox(height: 10), // Add spacing between Quick actions title and buttons
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            QuickActionButton(
-              icon: Icons.add_box,
-              text: 'Add\norder',
-            ),
-            QuickActionButton(
-              icon: Icons.calculate,
-              text: 'Rates\nCalculator',
-            ),
-            QuickActionButton(
-              icon: Icons.track_changes,
-              text: 'Track\nOrder',
-              
-            ),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Cargo\n',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  TextSpan(
-                    text: 'Calendar',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10.0), // Add bottom margin here
+      child: const Column(  
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.0),
+            child: Text(
+              'Quick actions',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+          SizedBox(height: 8.0), // Add spacing between Quick actions title and buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              QuickActionButton(
+                icon: Icons.add_box,
+                text: 'Add\norder',
+              ),
+              QuickActionButton(
+                icon: Icons.calculate,
+                text: 'Rates\nCalculator',
+              ),
+              QuickActionButton(
+                icon: Icons.track_changes,
+                text: 'Track\nOrder',
+                
+              ),
+               QuickActionButton(
+                icon: Icons.calendar_month,
+                text: 'Cargo\nCalendar',
+                
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

@@ -33,9 +33,9 @@ class _SlideViewState extends State<SlideView> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(vertical: 12.0),
+          margin: const EdgeInsets.symmetric(vertical: 10.0),
           width: double.infinity,
-          height: 200.0, // Adjusted height to accommodate indicators
+          height: 184.0, // Adjusted height to accommodate indicators
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -67,7 +67,7 @@ class _SlideViewState extends State<SlideView> {
               ),
               Positioned(
                 bottom: 8.0,
-                top: 116.0,
+                top: 146.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(3, (index) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SideDrawer extends StatelessWidget {
+  const SideDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -11,7 +13,7 @@ class SideDrawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
             ),
-            child: Text(
+            child: const Text(
               'Drawer Header',
               style: TextStyle(color: Colors.white),
             ),

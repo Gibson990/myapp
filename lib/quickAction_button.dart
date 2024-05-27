@@ -7,14 +7,16 @@ class QuickActionButton extends StatelessWidget {
   const QuickActionButton({
     required this.icon,
     required this.text,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 84,
       height: 80,
+      padding: const EdgeInsets.all(2),
+      margin: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -24,17 +26,17 @@ class QuickActionButton extends StatelessWidget {
         children: [
           Icon(
             icon,
-            size: 36,
+            size: 32,
             color: Theme.of(context).primaryColor,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 2),
           Wrap(
             alignment: WrapAlignment.center,
             children: text.split(' ').map((word) {
               return Text(
                 word,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                 ),
               );

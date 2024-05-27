@@ -5,7 +5,7 @@ class SplashScreenLogo extends StatelessWidget {
   final double width;
   final double height;
 
-  const SplashScreenLogo({Key? key, this.width = 200, this.height = 200}) : super(key: key);
+  const SplashScreenLogo({super.key, this.width = 200, this.height = 200});
 
   @override
   Widget build(BuildContext context) {
