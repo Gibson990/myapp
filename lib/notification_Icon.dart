@@ -12,7 +12,7 @@ class NotificationIcon extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => NotificationScreen(),
+            builder: (context) => const NotificationScreen(),
           ),
         );
       },

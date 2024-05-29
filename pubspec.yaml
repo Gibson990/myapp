@@ -26,6 +26,7 @@ flutter:
   assets:
     - assets/slideview/
     - assets/logo/
+    - assets/images/
    
 
 # Suggested code may be subject to a license. Learn more: ~LicenseLog:2141102426.
