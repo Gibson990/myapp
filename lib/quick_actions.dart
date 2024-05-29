@@ -35,7 +35,8 @@ class QuickActions extends StatelessWidget {
                 text: 'Rates\nCalculator',
               ),
               QuickActionButton(
-                icon: Icons.track_changes,
+                icon: Icons.qr_code_scanner,
+                // icon: MdiIcons.barcodeScan
                 text: 'Track\nOrder',
                 
               ),
