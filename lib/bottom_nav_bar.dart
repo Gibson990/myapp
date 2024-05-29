@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/help_page.dart';
+import 'package:myapp/profile_page.dart'; // Import your ProfilePage here
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
 
   const BottomNavBar({
-    super.key,
+    Key? key,
     required this.currentIndex,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +25,12 @@ class BottomNavBar extends StatelessWidget {
           label: 'Orders',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.chat),
-          label: 'Help',
-        ),
-        BottomNavigationBarItem(
           icon: Icon(Icons.account_circle),
           label: 'Profile',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat),
+          label: 'Help',
         ),
       ],
       currentIndex: currentIndex,
@@ -36,7 +38,28 @@ class BottomNavBar extends StatelessWidget {
       unselectedItemColor: Theme.of(context).hintColor,
       backgroundColor: Theme.of(context).secondaryHeaderColor,
       type: BottomNavigationBarType.fixed,
-      onTap: onTap,
+      onTap: (index) {
+        switch (index) {
+          case 2: // Profile
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfilePage(), // Navigate to ProfilePage
+              ),
+            );
+            break;
+          case 3: // Help
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HelpPage(),
+              ),
+            );
+            break;
+          default:
+            onTap(index);
+        }
+      },
     );
   }
 }

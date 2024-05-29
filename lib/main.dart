@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
     const Home(),
     const OrdersPage(),
     const HelpPage(),
-    const ProfilePage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SideDrawer extends StatefulWidget {
-  const SideDrawer({super.key});
+  const SideDrawer({Key? key}) : super(key: key);
 
   @override
   _SideDrawerState createState() => _SideDrawerState();
@@ -15,13 +15,16 @@ class _SideDrawerState extends State<SideDrawer> {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     return Drawer(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.zero, // Set borderRadius to zero for no rounded corners
+      ),
+      elevation: 0, // No shadow
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
               color: primaryColor,
-              shape: BoxShape.rectangle, // No rounded corners
             ),
             child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +111,7 @@ class _SideDrawerState extends State<SideDrawer> {
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: Colors.red),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.zero, // Set borderRadius to zero for no rounded corners
                 ),
               ),
               child: const Row(
@@ -127,9 +130,8 @@ class _SideDrawerState extends State<SideDrawer> {
                 ],
               ),
             ),
-            
           ),
-          SizedBox( height: 10.0,)
+          SizedBox(height: 10.0),
         ],
       ),
     );
