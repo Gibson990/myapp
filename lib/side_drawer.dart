@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SideDrawer extends StatefulWidget {
-  const SideDrawer({Key? key}) : super(key: key);
+  const SideDrawer({super.key});
 
   @override
   _SideDrawerState createState() => _SideDrawerState();
@@ -15,7 +15,7 @@ class _SideDrawerState extends State<SideDrawer> {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     return Drawer(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.zero, // Set borderRadius to zero for no rounded corners
       ),
       elevation: 0, // No shadow
@@ -110,7 +110,7 @@ class _SideDrawerState extends State<SideDrawer> {
               },
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: Colors.red),
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero, // Set borderRadius to zero for no rounded corners
                 ),
               ),
@@ -131,7 +131,7 @@ class _SideDrawerState extends State<SideDrawer> {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
         ],
       ),
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/update_profile_page.dart'; // Import the UpdateProfilePage
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,7 @@ class ProfilePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => UpdateProfilePage(),
+                              builder: (context) => const UpdateProfilePage(),
                             ),
                           );
                         },
