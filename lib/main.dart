@@ -7,6 +7,7 @@ import 'package:myapp/notification_Icon.dart';
 import 'package:myapp/orders_page.dart';
 import 'package:myapp/profile_page.dart';
 import 'package:myapp/side_drawer.dart';
+import 'package:myapp/tracking_card.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -64,10 +65,17 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const Home(),
-    const OrdersPage(),
-    const HelpPage(),
-    const ProfilePage(),
+    // const Home(),
+    // const OrdersPage(),
+    // const HelpPage(),
+    // const ProfilePage(),
+     TrackingCard(
+            orderNumber: '102 2881 432',
+            orderStatus: 'On the way',
+            date: '2024-06-11',
+            currentStep: 3,
+            description: 'Order is on the way to your city.',
+          ),
   ];
 
   void _onItemTapped(int index) {
