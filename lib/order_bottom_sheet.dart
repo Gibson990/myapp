@@ -8,6 +8,8 @@ class OrderOption {
 }
 
 class OrderBottomSheet extends StatefulWidget {
+  const OrderBottomSheet({super.key});
+
   @override
   _OrderBottomSheetState createState() => _OrderBottomSheetState();
 }

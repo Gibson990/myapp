@@ -65,17 +65,19 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   static final List<Widget> _widgetOptions = <Widget>[
-    // const Home(),
-    // const OrdersPage(),
-    // const HelpPage(),
-    // const ProfilePage(),
-     TrackingCard(
-            orderNumber: '102 2881 432',
-            orderStatus: 'On the way',
-            date: '2024-06-11',
-            currentStep: 3,
-            description: 'Order is on the way to your city.',
-          ),
+     const Home(),
+     const OrdersPage(),
+    const HelpPage(),
+     const ProfilePage(),
+
+    // order details card sample
+    //  TrackingCard(
+    //         orderNumber: '102 2881 432',
+    //         orderStatus: 'On the way',
+    //         date: '2024-06-11',
+    //         currentStep: 3,
+    //         description: 'Order is on the way to your city.',
+    //       ),
   ];
 
   void _onItemTapped(int index) {
