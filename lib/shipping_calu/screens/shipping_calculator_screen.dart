@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:test_screens/screens/shipping_rate_estimate_screen.dart';
-import 'package:test_screens/widgets/shipping_options.dart';
-import 'package:test_screens/widgets/tabs.dart';
-import 'package:test_screens/widgets/goods_and_weight_row.dart';
-import 'package:test_screens/widgets/dimensions_section.dart';
-import 'package:test_screens/widgets/location_section.dart';
-import 'package:test_screens/utils/constants.dart';
+
+import 'package:myapp/shipping_calu/screens/shipping_rate_estimate_screen.dart';
+import 'package:myapp/shipping_calu/utils/constants.dart';
+import 'package:myapp/shipping_calu/widgets/dimensions_section.dart';
+import 'package:myapp/shipping_calu/widgets/goods_and_weight_row.dart';
+import 'package:myapp/shipping_calu/widgets/location_section.dart';
+import 'package:myapp/shipping_calu/widgets/tabs.dart';
+
+
+import '../widgets/shipping_options.dart';
+
 
 class ShippingCalculatorScreen extends StatefulWidget {
-  const ShippingCalculatorScreen({Key? key}) : super(key: key);
+  const ShippingCalculatorScreen({super.key});
 
   @override
   State<ShippingCalculatorScreen> createState() =>
@@ -20,7 +24,7 @@ class _ShippingCalculatorScreenState extends State<ShippingCalculatorScreen>
   final _formKey = GlobalKey<FormState>();
   String _selectedGoodsType = 'Select';
   String _selectedDimensionUnit = 'cm';
-  bool _isUsingCBM = false;
+  final bool _isUsingCBM = false;
 
   final _weightController = TextEditingController();
   final _lengthController = TextEditingController();
@@ -135,7 +139,8 @@ class _ShippingCalculatorScreenState extends State<ShippingCalculatorScreen>
           'Shipping Calculator',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: customOrange,
+        backgroundColor: Theme.of(context).primaryColor,
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(padding),
@@ -215,7 +220,7 @@ class _ShippingCalculatorScreenState extends State<ShippingCalculatorScreen>
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 15),
-          backgroundColor: customOrange,
+          backgroundColor: Theme.of(context).primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),

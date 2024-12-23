@@ -79,8 +79,8 @@ class _CurrentlyOrdersState extends State<CurrentlyOrders> {
                   onNotification: (scrollNotification) {
                     if (scrollNotification is ScrollUpdateNotification) {
                       final scrollOffset = scrollNotification.metrics.pixels;
-                      final cardHeight = 96.0; // Approximate card height
-                      final showButtonThreshold = 3 * cardHeight;
+                      const cardHeight = 96.0; // Approximate card height
+                      const showButtonThreshold = 3 * cardHeight;
 
                       // Show FAB if the user is at the top (scrollOffset == 0)
                       // or if the user has scrolled past 3 cards

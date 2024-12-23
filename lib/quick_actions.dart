@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:myapp/barcode_scanner/barcode_scanner.dart';
 import 'package:myapp/order_bottom_sheet.dart';
-import 'package:myapp/shipping_calculator_screen.dart'; // Import the bottom sheet widget
 
+import 'package:myapp/shipping_calu/screens/shipping_calculator_screen.dart';
+// Import the bottom sheet widget
 
 class QuickActions extends StatelessWidget {
   const QuickActions({super.key});
@@ -25,12 +26,16 @@ class QuickActions extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 8.0), // Add spacing between Quick actions title and buttons
+          const SizedBox(
+              height:
+                  8.0), // Add spacing between Quick actions title and buttons
           LayoutBuilder(
             builder: (context, constraints) {
               final bool isSmallScreen = constraints.maxWidth < 400;
-              final double iconSize = isSmallScreen ? 40.0 : 48.0; // Icon size for responsiveness
-              final double cardSize = isSmallScreen ? 72.0 : 88.0; // Card size for responsiveness
+              final double iconSize =
+                  isSmallScreen ? 40.0 : 48.0; // Icon size for responsiveness
+              final double cardSize =
+                  isSmallScreen ? 72.0 : 88.0; // Card size for responsiveness
 
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -70,6 +75,12 @@ class QuickActions extends StatelessWidget {
                     text: 'Track\nOrder',
                     iconSize: iconSize,
                     cardSize: cardSize,
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BarcodeScanner(),
+                      ),
+                    ),
                   ),
                   QuickActionButton(
                     icon: Icons.calendar_month,

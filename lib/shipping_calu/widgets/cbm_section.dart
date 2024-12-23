@@ -6,11 +6,11 @@ class CBMSection extends StatelessWidget {
   final TextEditingController cbmController;
 
   const CBMSection({
-    Key? key,
+    super.key,
     required this.padding,
     required this.isUsingCBM,
     required this.cbmController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

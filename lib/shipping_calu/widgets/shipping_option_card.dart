@@ -6,11 +6,11 @@ class ShippingOptionCard extends StatelessWidget {
   final String weight;
 
   const ShippingOptionCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.cost,
     required this.weight,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

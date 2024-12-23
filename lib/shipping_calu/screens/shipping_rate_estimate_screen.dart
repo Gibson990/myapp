@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:test_screens/home_screen.dart';
+import 'package:myapp/home.dart';
+
 
 class ShippingRateEstimateScreen extends StatelessWidget {
   final double shippingCost;
@@ -17,7 +18,7 @@ class ShippingRateEstimateScreen extends StatelessWidget {
   final double? cbm;
 
   const ShippingRateEstimateScreen({
-    Key? key,
+    super.key,
     required this.shippingCost,
     required this.fromCountry,
     required this.fromCity,
@@ -30,7 +31,7 @@ class ShippingRateEstimateScreen extends StatelessWidget {
     required this.height,
     required this.shippingMethod,
     this.cbm,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

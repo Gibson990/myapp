@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_screens/utils/constants.dart';
+import 'package:myapp/shipping_calu/utils/constants.dart';
+
 
 class LocationSection extends StatefulWidget {
   final double padding;
@@ -40,54 +41,54 @@ class _LocationSectionState extends State<LocationSection> {
       {bool isTop = true, bool isBottom = true}) {
     return InputDecoration(
       hintText: hintText,
-      hintStyle: TextStyle(color: Colors.grey),
+      hintStyle: const TextStyle(color: Colors.grey),
       contentPadding: const EdgeInsets.symmetric(
         vertical: 16.0,
         horizontal: 12.0,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          topLeft: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          topRight: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          bottomLeft: isBottom ? Radius.circular(borderRadius) : Radius.zero,
-          bottomRight: isBottom ? Radius.circular(borderRadius) : Radius.zero,
+          topLeft: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          topRight: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomLeft: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomRight: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          topLeft: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          topRight: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          bottomLeft: isBottom ? Radius.circular(borderRadius) : Radius.zero,
-          bottomRight: isBottom ? Radius.circular(borderRadius) : Radius.zero,
+          topLeft: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          topRight: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomLeft: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomRight: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
         ),
-        borderSide: BorderSide(color: customOrange),
+        borderSide: const BorderSide(color: customOrange),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          topLeft: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          topRight: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          bottomLeft: isBottom ? Radius.circular(borderRadius) : Radius.zero,
-          bottomRight: isBottom ? Radius.circular(borderRadius) : Radius.zero,
+          topLeft: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          topRight: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomLeft: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomRight: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
         ),
-        borderSide: BorderSide(color: customGrey),
+        borderSide: const BorderSide(color: customGrey),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          topLeft: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          topRight: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          bottomLeft: isBottom ? Radius.circular(borderRadius) : Radius.zero,
-          bottomRight: isBottom ? Radius.circular(borderRadius) : Radius.zero,
+          topLeft: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          topRight: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomLeft: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomRight: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
         ),
-        borderSide: BorderSide(color: Colors.red),
+        borderSide: const BorderSide(color: Colors.red),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.only(
-          topLeft: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          topRight: isTop ? Radius.circular(borderRadius) : Radius.zero,
-          bottomLeft: isBottom ? Radius.circular(borderRadius) : Radius.zero,
-          bottomRight: isBottom ? Radius.circular(borderRadius) : Radius.zero,
+          topLeft: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          topRight: isTop ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomLeft: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
+          bottomRight: isBottom ? const Radius.circular(borderRadius) : Radius.zero,
         ),
-        borderSide: BorderSide(color: Colors.red),
+        borderSide: const BorderSide(color: Colors.red),
       ),
     );
   }

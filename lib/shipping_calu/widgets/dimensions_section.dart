@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_screens/utils/constants.dart';
+import 'package:myapp/shipping_calu/utils/constants.dart';
+
 
 class DimensionsSection extends StatelessWidget {
   final double padding;
@@ -13,7 +14,7 @@ class DimensionsSection extends StatelessWidget {
   final bool showCBMField;
 
   const DimensionsSection({
-    Key? key,
+    super.key,
     required this.padding,
     required this.selectedDimensionUnit,
     required this.lengthController,
@@ -23,12 +24,12 @@ class DimensionsSection extends StatelessWidget {
     required this.onDimensionUnitChanged,
     required this.onDimensionChanged,
     required this.showCBMField,
-  }) : super(key: key);
+  });
 
   InputDecoration _buildInputDecoration(String hintText) {
     return InputDecoration(
       hintText: hintText,
-      hintStyle: TextStyle(color: Colors.grey), // Set hint text color to gray
+      hintStyle: const TextStyle(color: Colors.grey), // Set hint text color to gray
       contentPadding: const EdgeInsets.symmetric(
         vertical: 16.0,
         horizontal: 12.0,
@@ -38,19 +39,19 @@ class DimensionsSection extends StatelessWidget {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        borderSide: BorderSide(color: customOrange),
+        borderSide: const BorderSide(color: customOrange),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        borderSide: BorderSide(color: customGrey),
+        borderSide: const BorderSide(color: customGrey),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        borderSide: BorderSide(color: Colors.red),
+        borderSide: const BorderSide(color: Colors.red),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        borderSide: BorderSide(color: Colors.red),
+        borderSide: const BorderSide(color: Colors.red),
       ),
     );
   }
@@ -147,7 +148,7 @@ class DimensionsSection extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Note: Dimension value should be greater than  ${selectedDimensionUnit == 'mm' ? '500' : selectedDimensionUnit == 'cm' ? '0.50' : '0.005'} ${selectedDimensionUnit}',
+            'Note: Dimension value should be greater than  ${selectedDimensionUnit == 'mm' ? '500' : selectedDimensionUnit == 'cm' ? '0.50' : '0.005'} $selectedDimensionUnit',
             style: const TextStyle(fontSize: 12, color: Colors.grey),
           ),
           if (showCBMField) ...[

@@ -38,7 +38,7 @@ class Home extends StatelessWidget {
               ),
             ];
           },
-          body: CurrentlyOrders(),
+          body: const CurrentlyOrders(),
         ),
       ),
     );

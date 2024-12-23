@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Tabs extends StatelessWidget {
   final TabController tabController;
 
-  const Tabs({Key? key, required this.tabController}) : super(key: key);
+  const Tabs({super.key, required this.tabController});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +16,11 @@ class Tabs extends StatelessWidget {
         labelColor: Colors.white,
         unselectedLabelColor: Colors.black,
         indicator: BoxDecoration(
-          color: Color(0xFFFF7F00),
+          color: const Color(0xFFFF7F00),
           borderRadius: BorderRadius.circular(8.0),
         ),
         indicatorSize: TabBarIndicatorSize.tab,
-        overlayColor: MaterialStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
         tabs: const [
           Tab(text: 'Land'),
           Tab(text: 'Air'),

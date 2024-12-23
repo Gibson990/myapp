@@ -7,17 +7,17 @@ class GoodsAndWeightRow extends StatelessWidget {
   final ValueChanged<String?> onGoodsTypeChanged;
 
   const GoodsAndWeightRow({
-    Key? key,
+    super.key,
     required this.padding,
     required this.selectedGoodsType,
     required this.weightController,
     required this.onGoodsTypeChanged,
-  }) : super(key: key);
+  });
 
   InputDecoration _buildInputDecoration(String hintText) {
     return InputDecoration(
       hintText: hintText,
-      hintStyle: TextStyle(color: Colors.grey), // Set hint text color to gray
+      hintStyle: const TextStyle(color: Colors.grey), // Set hint text color to gray
       contentPadding: const EdgeInsets.symmetric(
         vertical: 16.0,
         horizontal: 12.0,
