@@ -19,11 +19,12 @@ class TrackingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+    final isSmallDevice = deviceWidth < 375; // Adjust this threshold as needed
+
     return Center(
       child: Container(
-        width: deviceWidth * 0.94, // 94% of the device width
-        height: 178, // Increased height for description below progress bar
-        padding: const EdgeInsets.all(16),
+        width: deviceWidth * 0.94,
+        padding: EdgeInsets.all(isSmallDevice ? 10 : 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(4),
@@ -36,19 +37,73 @@ class TrackingCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: isSmallDevice
+            ? _buildCompactLayout(context)
+            : _buildFullLayout(context),
+      ),
+    );
+  }
+
+  Widget _buildCompactLayout(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Number: $orderNumber', style: TextStyle(color: Theme.of(context).hintColor)),
-            Text('Order Status: $orderStatus', style: const TextStyle(color: Colors.orange)),
-            Text(date, style: const TextStyle(color: Colors.orange)),
-            const SizedBox(height: 16),
-            ProgressBar(currentStep: currentStep),
-            const SizedBox(height: 16),
-            Text(description),
+            Text('Number: $orderNumber',
+                style: TextStyle(
+                    fontSize: 10, color: Theme.of(context).hintColor)),
+            Text(date,
+                style: const TextStyle(fontSize: 10, color: Colors.orange)),
           ],
         ),
-      ),
+        const SizedBox(height: 10),
+        Text('Order Status: $orderStatus',
+            style: const TextStyle(fontSize: 10, color: Colors.orange)),
+        const SizedBox(height: 10),
+        CompactProgressBar(currentStep: currentStep),
+      ],
+    );
+  }
+
+  Widget _buildFullLayout(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Number: $orderNumber',
+            style: TextStyle(color: Theme.of(context).hintColor)),
+        Text('Order Status: $orderStatus',
+            style: const TextStyle(color: Colors.orange)),
+        Text(date, style: const TextStyle(color: Colors.orange)),
+        const SizedBox(height: 16),
+        ProgressBar(currentStep: currentStep),
+        const SizedBox(height: 16),
+        Text(description),
+      ],
+    );
+  }
+}
+
+class CompactProgressBar extends StatelessWidget {
+  final int currentStep;
+  const CompactProgressBar({super.key, required this.currentStep});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        for (int i = 1; i <= 4; i++)
+          Container(
+            width: 10,
+            height: 10,
+            decoration: BoxDecoration(
+              color: currentStep >= i ? Colors.orange : Colors.grey,
+              shape: BoxShape.circle,
+            ),
+          ),
+      ],
     );
   }
 }
@@ -62,13 +117,25 @@ class ProgressBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        ProgressNode(isCompleted: currentStep >= 1, label: 'Pickup', isActive: currentStep == 1),
+        ProgressNode(
+            isCompleted: currentStep >= 1,
+            label: 'Pickup',
+            isActive: currentStep == 1),
         Expanded(child: ProgressLine(isCompleted: currentStep >= 2)),
-        ProgressNode(isCompleted: currentStep >= 2, label: 'Ready to ship', isActive: currentStep == 2),
+        ProgressNode(
+            isCompleted: currentStep >= 2,
+            label: 'Ready to ship',
+            isActive: currentStep == 2),
         Expanded(child: ProgressLine(isCompleted: currentStep >= 3)),
-        ProgressNode(isCompleted: currentStep >= 3, label: 'On the way', isActive: currentStep == 3),
+        ProgressNode(
+            isCompleted: currentStep >= 3,
+            label: 'On the way',
+            isActive: currentStep == 3),
         Expanded(child: ProgressLine(isCompleted: currentStep >= 4)),
-        ProgressNode(isCompleted: currentStep >= 4, label: 'In your city', isActive: currentStep == 4),
+        ProgressNode(
+            isCompleted: currentStep >= 4,
+            label: 'In your city',
+            isActive: currentStep == 4),
       ],
     );
   }
@@ -139,18 +206,18 @@ class _LinePainter extends CustomPainter {
       ..color = isCompleted ? Colors.orange : Colors.grey
       ..strokeWidth = 2;
 
-    // double centerY = size.height / 2;
-    double centerY = size.height / 2 - 8; // Adjusting centerY to move the line up
+    double centerY = size.height / 2 - 8;
 
-    // Draw a line that touches the edges of the nodes
     if (isCompleted) {
-      canvas.drawLine(Offset(-8, centerY), Offset(size.width + 8, centerY), paint);
+      canvas.drawLine(
+          Offset(-8, centerY), Offset(size.width + 8, centerY), paint);
     } else {
       const dashWidth = 5.0;
       const dashSpace = 3.0;
-      double startX = -8; // Start from the left edge of the previous node
-      while (startX < size.width + 8) { // End at the right edge of the next node
-        canvas.drawLine(Offset(startX, centerY), Offset(startX + dashWidth, centerY), paint);
+      double startX = -8;
+      while (startX < size.width + 8) {
+        canvas.drawLine(Offset(startX, centerY),
+            Offset(startX + dashWidth, centerY), paint);
         startX += dashWidth + dashSpace;
       }
     }
@@ -160,4 +227,49 @@ class _LinePainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return false;
   }
+}
+
+// Example usage in a ListView
+class TrackingCardList extends StatelessWidget {
+  final List<TrackingCardData> trackingCards;
+
+  const TrackingCardList({super.key, required this.trackingCards});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: trackingCards.length,
+      itemBuilder: (context, index) {
+        return SizedBox(
+          height: MediaQuery.of(context).size.width < 375
+              ? 120
+              : 178, // Adjust these values as needed
+          child: TrackingCard(
+            orderNumber: trackingCards[index].orderNumber,
+            orderStatus: trackingCards[index].orderStatus,
+            date: trackingCards[index].date,
+            currentStep: trackingCards[index].currentStep,
+            description: trackingCards[index].description,
+          ),
+        );
+      },
+    );
+  }
+}
+
+// Data model for TrackingCard
+class TrackingCardData {
+  final String orderNumber;
+  final String orderStatus;
+  final String date;
+  final int currentStep;
+  final String description;
+
+  TrackingCardData({
+    required this.orderNumber,
+    required this.orderStatus,
+    required this.date,
+    required this.currentStep,
+    required this.description,
+  });
 }

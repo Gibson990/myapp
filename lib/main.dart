@@ -7,7 +7,6 @@ import 'package:myapp/notification_Icon.dart';
 import 'package:myapp/orders_page.dart';
 import 'package:myapp/profile_page.dart';
 import 'package:myapp/side_drawer.dart';
-import 'package:myapp/tracking_card.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

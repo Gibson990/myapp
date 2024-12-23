@@ -15,24 +15,22 @@ class OrderBottomSheet extends StatefulWidget {
 }
 
 class _OrderBottomSheetState extends State<OrderBottomSheet> {
-  int _selectedOption = -1;
-
   final List<OrderOption> _options = [
     OrderOption(
       title: 'International Order',
-      subtitle: 'Create international orders to import or export your \nproducts world wide',
+      subtitle: 'Create international orders to import or export your products worldwide.',
     ),
     OrderOption(
       title: 'Local Pickup',
-      subtitle: 'Fast and convenient shipping within your local area, \nAffordable rates for local shipments',
+      subtitle: 'Fast and convenient shipping within your local area.',
     ),
     OrderOption(
       title: 'Return Order',
-      subtitle: 'Easy and streamlined return process, Flexible options for\nreturn shipping, including pickup and drop-off',
+      subtitle: 'Easy and streamlined return process for your convenience.',
     ),
     OrderOption(
       title: 'Refund Order',
-      subtitle: 'Quick and easy refunds for your customers Streamlined \nrefund process to save you time and effort',
+      subtitle: 'Quick and easy refunds for your customers.',
     ),
   ];
 
@@ -40,7 +38,11 @@ class _OrderBottomSheetState extends State<OrderBottomSheet> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16.0),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -49,57 +51,32 @@ class _OrderBottomSheetState extends State<OrderBottomSheet> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w500,
                 color: Colors.black,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 12),
             for (int i = 0; i < _options.length; i++)
-              RadioListTile(
+              ListTile(
                 title: Text(
                   _options[i].title,
                   style: const TextStyle(
                     color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.0,
                   ),
                 ),
                 subtitle: Text(
                   _options[i].subtitle,
                   style: TextStyle(
-                    color: _selectedOption == i ? Theme.of(context).hintColor : Theme.of(context).hintColor,
+                    color: Theme.of(context).hintColor,
+                    fontSize: 12.0,
                   ),
                 ),
-                activeColor: Theme.of(context).primaryColor,
-                value: i,
-                groupValue: _selectedOption,
-                onChanged: (int? value) {
-                  setState(() {
-                    _selectedOption = value!;
-                  });
+                onTap: () {
+                  Navigator.pop(context, _options[i]); // Return selected option
                 },
               ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 342,
-              height: 45,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                ),
-                onPressed: () {
-                  if (_selectedOption != -1) {
-                    // Handle the proceed action
-                    Navigator.pop(context, _selectedOption);
-                  }
-                },
-                child: const Text(
-                  'Proceed',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
           ],
         ),
       ),
