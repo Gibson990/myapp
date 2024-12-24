@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/help_page.dart';
-import 'package:myapp/profile_page.dart'; // Import your ProfilePage here
+import 'package:myapp/chat/help_page.dart';
+import 'package:myapp/profile/profile_page.dart'; // Import your ProfilePage here
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;

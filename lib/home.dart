@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/currently_orders.dart';
-import 'package:myapp/search_box.dart';
-import 'package:myapp/slide_view.dart';
-import 'package:myapp/quick_actions.dart';
+import 'package:myapp/orders/currently_orders.dart';
+import 'package:myapp/home/search_box.dart';
+import 'package:myapp/home/slide_view.dart';
+import 'package:myapp/home/quick_actions.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myapp/bottom_nav_bar.dart';
-import 'package:myapp/help_page.dart';
+import 'package:myapp/bottom_nav/bottom_nav_bar.dart';
+import 'package:myapp/chat/help_page.dart';
 import 'package:myapp/home.dart';
-import 'package:myapp/notification_Icon.dart';
-import 'package:myapp/orders_page.dart';
-import 'package:myapp/profile_page.dart';
-import 'package:myapp/side_drawer.dart';
+import 'package:myapp/home/notification_Icon.dart';
+import 'package:myapp/orders/orders_page.dart';
+import 'package:myapp/profile/profile_page.dart';
+import 'package:myapp/home/side_drawer.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

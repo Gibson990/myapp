@@ -11,7 +11,7 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
   final TextEditingController _awbController = TextEditingController();
 
   void _proceed() {
-    // Navigate to the next screen or handle action
+    // Navigate to the TrackingScreen
     Navigator.push(
       context,
       MaterialPageRoute(

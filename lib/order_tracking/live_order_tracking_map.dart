@@ -347,10 +347,10 @@ class _LiveOrderTrackingMapState extends State<LiveOrderTrackingMap> {
                 _buildInfoCard(context),
               ],
             ),
-      floatingActionButton: FloatingActionButton(
+       floatingActionButton: FloatingActionButton(
         onPressed: _centerMapOnRoute,
-        child: const Icon(Icons.center_focus_strong),
         backgroundColor: Colors.orange,
+        child: const Icon(Icons.center_focus_strong, color: Colors.white),
       ),
     );
   }
