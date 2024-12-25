@@ -9,10 +9,10 @@ class LiveOrderTrackingMap extends StatefulWidget {
   final String transportMode;
 
   const LiveOrderTrackingMap({
-    Key? key,
+    super.key,
     required this.isInternational,
     this.transportMode = "land",
-  }) : super(key: key);
+  });
 
   @override
   _LiveOrderTrackingMapState createState() => _LiveOrderTrackingMapState();
@@ -116,8 +116,9 @@ class _LiveOrderTrackingMapState extends State<LiveOrderTrackingMap> {
 
   void _listenToLocationChanges() {
     location.onLocationChanged.listen((LocationData locationData) {
-      if (locationData.latitude == null || locationData.longitude == null)
+      if (locationData.latitude == null || locationData.longitude == null) {
         return;
+      }
 
       setState(() {
         currentLocation = LatLng(

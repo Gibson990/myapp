@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/barcode_scanner/tracking_screen.dart';
 
 class BarcodeScanner extends StatefulWidget {
+  const BarcodeScanner({super.key});
+
   @override
   _BarcodeScannerState createState() => _BarcodeScannerState();
 }
@@ -30,15 +32,15 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
               color: Colors.black,
               padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
                     IconButton(
-                      icon: Icon(Icons.arrow_back, color: Colors.white),
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
                       onPressed: () => Navigator.pop(context),
                     ),
-                    SizedBox(width: 8),
-                    Text(
+                    const SizedBox(width: 8),
+                    const Text(
                       'Barcode Scanner',
                       style: TextStyle(
                         color: Colors.white,
@@ -57,7 +59,7 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: 120, // Reduced height
                         child: Stack(
@@ -72,7 +74,7 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(
                         'Point your camera at a barcode',
                         style: TextStyle(
@@ -97,7 +99,7 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
             ),
             Container(
               color: Colors.white,
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -105,21 +107,21 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
                     '1',
                     'You can scan multiple Shipping Labels. All scanned AWBs will be listed below. Click on any AWB to view Order details.',
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   _buildInfoText(
                     '2',
                     'Packages being picked up from the same Pickup Address & being sent through the same Carrier Company will be added to the same Manifest post generating manifest.',
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Generate Manifest(s) for AWBs:',
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   TextField(
                     controller: _awbController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Enter AWB Number',
                       border: OutlineInputBorder(),
                       contentPadding:
@@ -127,20 +129,20 @@ class _BarcodeScannerState extends State<BarcodeScanner> {
                     ),
                     onSubmitted: (value) => _proceed(),
                   ),
-                  SizedBox(height: 32), // Increased spacing
+                  const SizedBox(height: 32), // Increased spacing
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: _proceed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
-                        padding: EdgeInsets.symmetric(vertical: 16),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius:
                               BorderRadius.circular(2), // Reduced corner radius
                         ),
                       ),
-                      child: Text('Proceed',
+                      child: const Text('Proceed',
                           style: TextStyle(color: Colors.white)),
                     ),
                   ),

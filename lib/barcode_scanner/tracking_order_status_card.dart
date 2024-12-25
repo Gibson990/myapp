@@ -10,7 +10,7 @@ class TrackingOrderStatusCard extends StatelessWidget {
   final List<Map<String, String>> timeline;
 
   const TrackingOrderStatusCard({
-    Key? key,
+    super.key,
     required this.trackingId,
     required this.customerName,
     required this.fromLocation,
@@ -18,7 +18,7 @@ class TrackingOrderStatusCard extends StatelessWidget {
     required this.status,
     required this.weight,
     required this.timeline,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

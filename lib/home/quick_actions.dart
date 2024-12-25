@@ -79,7 +79,7 @@ class QuickActions extends StatelessWidget {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BarcodeScanner(),
+                        builder: (context) => const BarcodeScanner(),
                       ),
                     ),
                   ),
