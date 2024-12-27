@@ -4,6 +4,8 @@ import 'package:myapp/add_order/order_bottom_sheet.dart';
 
 
 import 'package:myapp/shipping_calu/screens/shipping_calculator_screen.dart';
+
+import '../cargo_shedule/cargo_schedule.dart';
 // Import the bottom sheet widget
 
 class QuickActions extends StatelessWidget {
@@ -88,6 +90,12 @@ class QuickActions extends StatelessWidget {
                     text: 'Cargo\nCalendar',
                     iconSize: iconSize,
                     cardSize: cardSize,
+                     onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CargoScheduleWidget(),
+                      ),
+                    ),
                   ),
                 ],
               );
